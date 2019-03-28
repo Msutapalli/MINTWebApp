@@ -1,0 +1,37 @@
+@import "../../variables";
+.login-section {
+  min-height: 98vh;
+  .card {
+    border-radius: 0;
+    float: none;
+    margin: auto;
+    box-shadow: none;
+    border: none;
+    input {
+      border: none;
+      border-bottom: 1px solid white;
+      border-radius: 0;
+      background-color: @mint-black;
+      outline: none;
+      box-shadow: none;
+      color: white;
+    & :focus {
+      outline: none;
+      box-shadow: none !important;
+    }
+    }
+
+    .input-group-text {
+      background: @mint-black !important;
+      color: white;
+      border: none;
+      border-bottom: 1px solid white;
+      border-radius: 0;
+    }
+  }
+
+
+}
+.message::first-letter  {
+    text-transform: capitalize;
+}

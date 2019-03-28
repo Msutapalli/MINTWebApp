@@ -1,0 +1,63 @@
+<div class="login-section bg-mint-black">
+  <div style="padding-top: 15%">
+    <div class="card col-md-4 p-4 bg-mint-black  text-light text-center">
+      <span class="h4 pb-4 text-center">
+        <img src="../../assets/img/mint.png" alt="" width="200px">
+      </span>
+
+      <form #loginForm="ngForm" *ngIf="auditInProgress; else showNotification">
+        <div class="mb-2 small text-danger ">{{message}}</div>
+        <div class="form-group">
+          <div class="input-group">
+            <!-- <span class="input-group-prepend">
+            <span class="input-group-text" ><i class="fa fa-fw fa-user"></i></span>
+          </span>-->
+            <input type="text" class="form-control" placeholder="Username" name="username" ngModel required
+              autocomplete="off">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <!--<span class="input-group-prepend">
+            <span class="input-group-text" ><i class="fa fa-fw fa-lock"></i></span>
+          </span>-->
+            <input type="password" class="form-control" placeholder="Password" name="password" ngModel required
+              autocomplete="off">
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <button *ngIf="!loading" type="submit" class="btn bg-mint-red text-light" [disabled]="loginForm.invalid"
+            (click)="login(loginForm.value)" style="cursor: pointer;">
+            I'm ready! Sign In :)
+          </button>
+          <div *ngIf="loading">
+            <span class="fa fa-fw fa-spin fa-circle-o-notch text-danger fa-lg"></span>
+          </div>
+        </div>
+
+        <div class="small mt-4" (click)="open()" style="cursor: pointer;">Forgot Your Password?</div>
+      </form>
+      <ng-template #showNotification>
+        <div class="row">
+          <span class="h3">Miracle's Quarterly Audit is currently not in session.</span>
+          <span class="mt-2">If you would like to use the MINT App, please head over to Apple App Store or Google Play
+            Store to get the application.</span>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-6 btn">
+            <a href="https://itunes.apple.com/us/app/miracles-inventory-tracker/id1354459188?mt=8"><img src="../../assets/icons/app-store.png"
+                alt="Apple App Store" style="width: 7em !important; height: 2.5em !important;"></a>
+          </div>
+          <div class="col-md-6 btn">
+            <a href="https://play.google.com/store/apps/details?id=com.mss.mint"><img src="../../assets/icons/play-store.png"
+                alt="Google Play Store" style="width: 7em !important; height: 2.5em !important;"></a>
+
+          </div>
+
+
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</div>

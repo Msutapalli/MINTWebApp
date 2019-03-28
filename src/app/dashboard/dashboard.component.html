@@ -1,0 +1,55 @@
+<div class="list-wrapper">
+  <div *ngIf="loading; else showItems" class="text-center" style="margin-top: 45%">
+    <span class="fa fa-spin fa-circle-o-notch text-mint-red fa-3x"></span>
+    <div class="small text-muted pt-2">Fetching your devices</div>
+  </div>
+
+  <ng-template #showItems>
+    <div class="device-list p-2 mt-2 ">
+      <!-- <div class="device-list pre-scrollable p-2 mt-2"> -->
+      <div *ngIf="deviceList.length > 0; else noItems" class="pb-4">
+        <div *ngFor="let item of deviceList">
+          <div class="each-item p-2">
+            <div class="row mb-3">
+              <div class="image col-3 p-2 pl-4"><img [src]="item['details']['posterUrl']" alt="" style="width: 5em;height: 5em;border-radius: 5px"></div>
+              <div class="details col-8 pl-4">
+                <div class="title text-mint-black">
+                  <h6>{{item['details']['itemName']}}</h6>
+                </div>
+                <div class="location"><span class="small">Currently at <span class="font-weight-bold">{{item['details']['itemLocation']}}</span></span>
+                </div>
+                <div class="owner"><span class="small">with <span class="font-weight-bold">{{item['details']['assigned']['to']['hubbleId']}}</span></span>
+                </div>
+
+                <div class="text-right" *ngIf="item.scan.isDirty" style="width:inherit; position: absolute; padding-right: 0.25em; margin-top: -20px">
+                  <div class="btn btn-sm btn-outline-danger p-2" (click)="open(item)">
+                    <!--<span class=" fa fa-fw fa-plus"></span> --><span class="fa fa-fw fa-lg fa-comments-o "></span>
+                    <!--Comment-->
+                  </div>
+                  <div class="btn btn-sm btn-danger ml-2 p-2" [routerLink]="['/camera', item['qrCode']]">
+                    <span class=" fa fa-fw fa-qrcode fa-lg"></span>
+                    <!--Comment-->
+                  </div>
+                </div>
+              </div>
+              <div class="text-center float-right" style="font-size: larger">
+                <span *ngIf="item.scan.accountedFor" class="fa fa-fw fa-check-circle text-success"></span>
+                <span *ngIf="!item.scan.accountedFor" class="fa fa-fw fa-exclamation-circle text-danger"></span>
+              </div>
+            </div>
+            <!--<div class="row mb-0 mt-4 mb-1 pl-2 bg-danger text-light">
+              <span class="fa fa-fw fa-comment-o "></span><span class="small">&nbsp;{{item['comments'][0]['commentText']}}</span>
+            </div>-->
+          </div>
+        </div>
+      </div>
+      <ng-template #noItems>
+        <div class="text-center small text-muted font-italic mt-4">You currently have no devices</div>
+      </ng-template>
+    </div>
+  </ng-template>
+  <!--
+   <div class="float text-center p-2">
+
+   </div>-->
+</div>

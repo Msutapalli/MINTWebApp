@@ -1,0 +1,39 @@
+<div class="app-wrapper">
+  <div *ngIf="loggedIn; else login">
+    <ng-sidebar-container>
+      <ng-sidebar [(opened)]="this.data._sidebarVal" [autoFocus]="false" closeOnClickOutside="true" mode="over" animate="true"
+        autoCollapseWidth="989">
+        <div class="bg-mint-black text-light text-left" style="height: 100vh; width: 12em">
+          <div class="bg-mint-blue pt-2 pb-2 text-center ">
+            <div class="pt-2">
+              <img [src]="userDetails? userDetails.Image : imgSrc" alt="" style="border-radius: 100px; border: 2px solid white"
+                width="80px" height="80px">
+            </div>
+            <div class="pt-2">
+              <div class="small"> {{userDetails?.FName + ' ' + userDetails?.LName}}</div>
+              <div style="font-size: x-small"> {{userDetails?.TitleTypeId}}</div>
+            </div>
+          </div>
+          <div class="">
+            <div class="col-md-12 p-2 pl-4 link" [routerLink]="['/home']" style="border-bottom: 1px solid white">
+              <i class="fa fa-fw fa-home"></i> Home
+            </div>
+            <div class="col-md-12 p-2 pl-4 link" (click)="logout()" style="border-bottom: 1px solid white">
+              <i class="fa fa-fw fa-user"></i> Logout
+            </div>
+          </div>
+        </div>
+      </ng-sidebar>
+      <div ng-sidebar-content>
+        <app-top-bar (passAuth)="setLogin($event)"></app-top-bar>
+        <router-outlet></router-outlet>
+      </div>
+    </ng-sidebar-container>
+  </div>
+  <ng-template #login>
+    <app-login (passAuth)="setLogin($event)"></app-login>
+  </ng-template>
+  <div class="footer mt-4 mb-0 p-2 small bg-mint-black text-light text-center">
+    <span>Built by <span class="text-mint-blue">Miracle's</span> Innovation Labs</span>
+  </div>
+</div>

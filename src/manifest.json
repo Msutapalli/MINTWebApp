@@ -1,0 +1,23 @@
+{
+   "name": "Miracle's Inventory Tracker",
+   "short_name": "MINT Lite",
+   "start_url": "./",
+   "theme_color": "#EF4048",
+   "background_color": "#232527",
+   "display": "standalone",
+   "description": "A lite version for web to update your device status",
+  "icons": [
+    {
+      "src": "./assets/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+
+
+}

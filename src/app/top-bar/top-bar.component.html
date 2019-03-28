@@ -1,0 +1,30 @@
+<div class="wrapper container-fluid bg-mint-red text-light">
+  <div class="row">
+    <div class="col-2">
+      <div class="pt-3">
+        <span (click)="this.data._sidebarVal=!this.data._sidebarVal" class="fa-lg fa fa-fw fa-bars" style="cursor: pointer;"></span>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="pt-3 text-center">
+        <div class="h4 app-title">MINT Audit</div>
+      </div>
+
+    </div>
+    <!-- <div class="col-1">
+      <div class="pt-3">
+        <span class="fa-lg fa fa-fw fa-search " style="cursor: pointer;"></span>
+      </div>
+    </div> -->
+    <div class="
+          col-md-12 text-center bg-secondary text-light small p-1">
+      Audit ends on {{auditDetails['endDate'] | date:'medium'}}
+    </div>
+    <!--<div class="col-md-6 d-md-block d-none">
+      <div class="text-right mt-2">
+        <span class="col-md-12">Hello! Abhishek Rattihalli </span>
+        <span class="col-md-12 btn text-right" (click)="logout()"><i class="fa fa-fw fa-sign-out"></i>Logout</span>
+      </div>
+    </div>-->
+  </div>
+</div>

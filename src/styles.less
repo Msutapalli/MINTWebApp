@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import "variables";
+
+
+
+body {
+  background: white;
+  color: @mint-black;
+  font-family: "Montserrat", monospace !important;
+
+  .header {
+    border-bottom: 2px solid #6E8387;
+  }
+
+  .bg-mint-red {
+    background-color: @mint-red;
+  }
+
+  .bg-mint-black{
+    background-color: @mint-black;
+  }
+
+  .bg-mint-blue{
+    background-color: @mint-blue;
+  }
+
+  .text-mint-red {
+    color: @mint-red;
+  }
+
+  .text-mint-black {
+    color: @mint-black;
+  }
+
+  .text-mint-blue {
+    color: @mint-blue;
+  }
+
+
+
+}
+
+.pre-scrollable {
+  min-height: 90vh !important;
+  max-height: 90vh !important;
+  &::-webkit-scrollbar {
+    width: 0.3em;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+  }
+}

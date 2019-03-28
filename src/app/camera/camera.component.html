@@ -1,0 +1,30 @@
+<div class="camera-wrapper">
+
+  <div *ngIf="!fallbackCamera; else showFileInput">
+    <div id="video-container" class="text-center pt-4 pl-3 pr-3">
+      <video id="camera-stream" autoplay style="z-index: 0"></video>
+      <canvas id="qr-canvas" class="d-none"></canvas>
+      <!--<span *ngIf="scanInProgress" style="min-height: 2px; border-top:2px solid red;width: 20em;display: block; position: absolute; margin-top: -10em;" class="ml-1"></span>
+      <span *ngIf="!scanInProgress" class="fa fa-fw fa-2x fa-spin fa-circle-o-notch text-danger" style="margin-top: -6em; z-index: 99;position: absolute"></span>-->
+
+    </div>
+
+    <div class="text-center mt-2">
+
+
+      <button class="btn btn-lg bg-mint-blue text-light" (click)="captureImage()" [disabled]="scanInProgress"><span
+        class="fa fa-fw" [ngClass]="scanInProgress? 'fa-spin fa-circle-o-notch' : 'fa-camera'"></span> Capture
+      </button>
+    </div>
+  </div>
+  <ng-template #showFileInput>
+    <div class="text-center mt-2">
+      <div class="btn btn-lg bg-mint-blue text-light btn-file">
+        <span class="fa fa-fw" [ngClass]="scanInProgress? 'fa-spin fa-circle-o-notch' : 'fa-camera'"></span> Capture
+        <input type="file" accept="image/*" id="file-input" capture (change)="captureImage()">
+
+
+      </div>
+    </div>
+  </ng-template>
+</div>
