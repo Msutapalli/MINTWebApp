@@ -32,7 +32,7 @@ export class MintService {
       'hubbleId': this.username,
       'password': this.password
     };
-    return this.http.post(this.baseURL + `Login`,
+    return this.http.post(this.baseURL + `LoginProd`,
       loginData, this.httpOptions);
   }
 
@@ -44,7 +44,7 @@ export class MintService {
       'password': this.password
     };
 
-    return this.http.post(this.baseURL + `getalldevices`,
+    return this.http.post(this.baseURL + `getalldevicesProd`,
       loginData, this.httpOptions);
   }
 
@@ -57,7 +57,7 @@ export class MintService {
       'password': this.password
     };
     console.log('login data', loginData)
-    return this.http.post(this.baseURL + `getYourItems`,
+    return this.http.post(this.baseURL + `getYourItemsProd`,
       loginData, this.httpOptions);
   }
 
@@ -68,7 +68,7 @@ export class MintService {
       'password': this.password
     };
 
-    return this.http.post(this.baseURL + `getItemByqrcode?qrCode=${qrCode}`,
+    return this.http.post(this.baseURL + `getItemByqrcodeProd?qrCode=${qrCode}`,
       loginData, this.httpOptions);
   }
 
@@ -84,7 +84,7 @@ export class MintService {
       }
     };
     console.log('-->service', postData, docId)
-    return this.http.post(this.baseURL + `addreason?documentId=${docId}`,
+    return this.http.post(this.baseURL + `addreasonProd?documentId=${docId}`,
       postData, this.httpOptions);
   }
 
@@ -94,7 +94,7 @@ export class MintService {
       'hubbleId': this.username,
       'password': this.password,
     };
-    return this.http.post(this.baseURL + `updatescandetails?qrCode=${qrCode}`,
+    return this.http.post(this.baseURL + `updatescandetailsProd?qrCode=${qrCode}`,
       postData, this.httpOptions);
   }
 
@@ -103,7 +103,7 @@ export class MintService {
       'hubbleId': hubbleId
     };
 
-    return this.http.post(this.baseURL + `passwordReset`,
+    return this.http.post(this.baseURL + `passwordResetProd`,
       loginData, this.httpOptions);
   }
 
@@ -114,6 +114,6 @@ export class MintService {
       'hubbleId': this.username,
       'password': this.password,
     };
-    return this.http.get(this.baseURL + `getauditdetails`, this.httpOptions);
+    return this.http.get(this.baseURL + `getAuditDetailsProd`, this.httpOptions);
   }
 }
