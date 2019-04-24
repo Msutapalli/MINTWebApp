@@ -12,7 +12,7 @@
             <!-- <span class="input-group-prepend">
             <span class="input-group-text" ><i class="fa fa-fw fa-user"></i></span>
           </span>-->
-            <input type="text" class="form-control" placeholder="Username" name="username" ngModel required
+            <input type="text" class="form-control" placeholder="Username" name="username" ngModel required onkeyup="this.value = this.value.toLowerCase();"
               autocomplete="off">
           </div>
         </div>
